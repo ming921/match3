@@ -17,6 +17,7 @@ def predict_purchase_init():
     data = request.get_data().decode("utf-8")
     try:
         data = aes_decrypt(data)
+        # data = json.loads(data)
     except Exception:
         return {"rate": 0}, 201
     rate = predict_init(dict_path, init_path, data)
